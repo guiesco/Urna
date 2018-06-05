@@ -1,7 +1,6 @@
 package br.ufsc.ine5605.Urna.Controladores;
 
 import br.ufsc.ine5605.Urna.Elementos.*;
-import br.ufsc.ine5605.Urna.Telas.TelaCadastro;
 
 import java.util.ArrayList;
 
@@ -13,7 +12,7 @@ public class SistemaVotacao {
     private ArrayList<Eleitor> eleitores;
     private ArrayList<Integer> secoesSJ;
     private ArrayList<Urna> urnas;
-    private TelaCadastro telaCadastro;
+
 
     public SistemaVotacao(){
         secoesSJ = new ArrayList<>();
@@ -22,13 +21,13 @@ public class SistemaVotacao {
         eleitoresFloripa = new ArrayList<>();
         eleitores = new ArrayList<>();
         urnas = new ArrayList<>();
-        telaCadastro = new TelaCadastro();
+
     }
 
     public void inicia() {
     }
 
-    public void iniciaVotacao(ArrayList<Eleitor> eleitores, ArrayList<Candidato> candidatos) {
+    /*public void iniciaVotacao(ArrayList<Eleitor> eleitores, ArrayList<Candidato> candidatos) {
         this.eleitores = eleitores;
         for (Eleitor eleitor : eleitores) {
             if (eleitor.getZona() == Zona.Florianopolis) {
@@ -98,7 +97,7 @@ public class SistemaVotacao {
         }while (!termina);
 
         resultadoVotacao(candidatosDEP,candidatosGOV, totalVotos);
-    }
+    }*/
 
     public void resultadoVotacao(ArrayList<Candidato> candidatosDEP, ArrayList<Candidato> candidatosGOV, int totalVotos){
         Candidato vencedor = new Candidato("a", 879816, CARGO.GOVERNADOR, new PartidoPolitico("a", 48486));
@@ -160,10 +159,10 @@ public class SistemaVotacao {
             System.out.println("O vencedor eh " +vencedor.getCargo()+ vencedor.getNome());
         }
 
-        if (c2.size()>1){
+  /*      if (c2.size()>1){
             iniciaVotacao(eleitores, c2);
         }
-
+*/
     }
 
 

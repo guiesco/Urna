@@ -23,6 +23,7 @@ public class Candidato {
     public int getVotos(){
         return votos;
     }
+
     public String getNome() {
         return nome;
     }

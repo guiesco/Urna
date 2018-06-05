@@ -2,7 +2,6 @@ package br.ufsc.ine5605.Urna.Telas;
 
 import br.ufsc.ine5605.Urna.Controladores.ControladorPartidos;
 import br.ufsc.ine5605.Urna.Elementos.PartidoPolitico;
-import javafx.scene.control.Alert;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,11 +12,13 @@ import java.util.ArrayList;
 public class TelaPartidos extends JFrame {
 
     private ControladorPartidos ctrlPartidos;
+    private JList partidos;
+    private DefaultListModel<String> partidosCadastrados;
     private JLabel label;
     private JButton cadastro;
     private JButton excluir;
 
-    public TelaPartidos(final ControladorPartidos ctrl, ArrayList<PartidoPolitico> partidos1){
+    public TelaPartidos(ControladorPartidos ctrl){
 
         //Inicialização JFrame
         super("Partidos");
@@ -25,7 +26,7 @@ public class TelaPartidos extends JFrame {
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-        setSize(400, 150);
+        setSize(400, 200);
         setLocationRelativeTo(null);
         GerenciadorBotoes btManager = new GerenciadorBotoes();
 
@@ -36,19 +37,18 @@ public class TelaPartidos extends JFrame {
         c.gridy = 0;
         container.add(label, c);
 
-        //Criação da lista
-        DefaultListModel<String> partidosCadastrados = new DefaultListModel();
-        partidosCadastrados.addElement("p1");
-        partidosCadastrados.addElement("p2");
-        partidosCadastrados.addElement("p3");
-        for (PartidoPolitico pp : partidos1){
+        //Criação da lista nomes
+        partidosCadastrados = new DefaultListModel();
+        partidosCadastrados.setSize(0);
+        for (PartidoPolitico pp : ctrlPartidos.getPartidos()){
             partidosCadastrados.addElement(pp.getNome());
         }
-        JList partidos = new JList(partidosCadastrados);
+        partidos = new JList(partidosCadastrados);
         partidos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         partidos.setLayoutOrientation(JList.VERTICAL);
-        partidos.setVisibleRowCount(-1);JScrollPane listScroller = new JScrollPane(partidos);
-        listScroller.setPreferredSize(new Dimension(250, 80));
+        partidos.setVisibleRowCount(-1);
+        JScrollPane listScroller = new JScrollPane(partidos);
+        listScroller.setPreferredSize(new Dimension(100, 50));
         c.gridx = 1;
         c.gridy = 1;
         container.add(partidos, c);
@@ -70,6 +70,17 @@ public class TelaPartidos extends JFrame {
         container.add(excluir, c);
     }
 
+    public void exclui(){
+        int index = partidos.getSelectedIndex();
+        String nome = partidosCadastrados.get(index);
+        if (!(ctrlPartidos.exclui(index, nome) == null)){
+            partidosCadastrados.remove(index);
+        }else {
+            JOptionPane.showMessageDialog(null, "Problema ao deletar partido.");
+        }
+    }
+
+
     private class GerenciadorBotoes implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -79,10 +90,9 @@ public class TelaPartidos extends JFrame {
                     ctrlPartidos.novoCadastro();
                     break;
                 case "exclusao":
-                    ;
-                    break;
-                default:
-                    ;
+                    if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o partido selecionado?", "Confirme", 2) == 0){
+                        exclui();
+                    }
                     break;
             }
         }

@@ -1,9 +1,8 @@
 package br.ufsc.ine5605.Urna.Controladores;
 
 import br.ufsc.ine5605.Urna.Elementos.PartidoPolitico;
-import br.ufsc.ine5605.Urna.Telas.TelaCadastro;
+import br.ufsc.ine5605.Urna.Exceptions.CodigoNaoNumericoException;
 import br.ufsc.ine5605.Urna.Telas.TelaCadastroPartido;
-import br.ufsc.ine5605.Urna.Telas.TelaImpressao;
 import br.ufsc.ine5605.Urna.Telas.TelaPartidos;
 
 import java.util.ArrayList;
@@ -17,8 +16,8 @@ public class ControladorPartidos {
 
     public ControladorPartidos(){
         partidos = new ArrayList<>();
-        telaPartidos = new TelaPartidos(this, partidos);
-        telaCadastroPartido = new TelaCadastroPartido();
+        telaPartidos = new TelaPartidos(this);
+        telaCadastroPartido = new TelaCadastroPartido(this);
     }
 
     public ArrayList<PartidoPolitico> getPartidos() {
@@ -27,29 +26,36 @@ public class ControladorPartidos {
 
 
     public void inicia() {
+        telaPartidos = new TelaPartidos(this);
         telaPartidos.setVisible(true);
     }
 
-    public PartidoPolitico adiciona (String nome, int codigo){
-        PartidoPolitico novoPartido = new PartidoPolitico(nome, codigo);
-        partidos.add(novoPartido);
-        return novoPartido;
+    public void novoCadastro() {
+        telaPartidos.setVisible(false);
+        telaCadastroPartido = new TelaCadastroPartido(this);
+        telaCadastroPartido.setVisible(true);
     }
 
-
-    public String novoCadastro() {
-        telaCadastroPartido.setVisible(true);
-        String nomePartido = telaCadastroPartido.getNome().getText();
-        int codigoPartido = Integer.parseInt(telaCadastroPartido.getCodigo().getText());
-        if(!existe(nomePartido, codigoPartido)){
-            adiciona(nomePartido, codigoPartido);
+    public PartidoPolitico adiciona (String nomePartido, String codigo) throws CodigoNaoNumericoException{
+        try {
+            int codigoPartido = Integer.parseInt(codigo);
+            if(!existe(nomePartido, codigoPartido)) {
+                PartidoPolitico novoPartido = new PartidoPolitico(nomePartido, codigoPartido);
+                partidos.add(novoPartido);
+                telaCadastroPartido.setVisible(false);
+                inicia();
+                return novoPartido;
+            }else {
+                return null;
+            }
+        }catch (Exception e){
+            throw new CodigoNaoNumericoException();
         }
-        return null;
     }
 
     public boolean existe(String nome, int codigoPartido) {
         for (PartidoPolitico pp : partidos){
-            if (pp.getCodigo() == codigoPartido){
+            if (pp.getCodigo() == codigoPartido && pp.getNome().equalsIgnoreCase(nome)){
                 return true;
             }
         }
@@ -57,12 +63,11 @@ public class ControladorPartidos {
     }
 
 
-    public PartidoPolitico exclui(String nome, int codigo) {
-        for (PartidoPolitico partido : partidos){
-            if (partido.getCodigo() == codigo && partido.getNome().equalsIgnoreCase(nome)){
-                partidos.remove(partido);
-                return partido;
-            }
+    public PartidoPolitico exclui(int index, String nome) {
+        PartidoPolitico partido = partidos.get(index);
+        if (partido.getNome().equalsIgnoreCase(nome)){
+            partidos.remove(partido);
+            return partido;
         }
         return null;
     }
