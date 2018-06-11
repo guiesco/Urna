@@ -93,7 +93,7 @@ public class TelaCadastroCandidato extends JFrame {
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 3;
-        container.add(cargo);
+        container.add(cargo, c);
 
         //config Botao salva
         salva = new JButton("Salvar");
