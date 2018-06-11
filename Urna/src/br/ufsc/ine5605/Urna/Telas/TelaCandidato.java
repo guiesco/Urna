@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class TelaCandidato extends JFrame {
 
     private ControladorCandidatos ctrlCandidatos;
-    private ArrayList<PartidoPolitico> partidosCadastrados;
     private JList candidatos;
     private DefaultListModel<String> candidatosCadastrados;
     private JLabel label;
@@ -23,7 +22,6 @@ public class TelaCandidato extends JFrame {
     public TelaCandidato (ControladorCandidatos ctrl){
         super("Candidato");
         ctrlCandidatos = ctrl;
-        partidosCadastrados = ctrlCandidatos.getPartidos();
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
