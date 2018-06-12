@@ -68,7 +68,7 @@ public class ControladorPartidos {
         String nome = nomeObj.toString();
         for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
             if (pp.getNome().equalsIgnoreCase(nome)){
-                PartidoDAO.getInstancia().getList().remove(pp);
+                PartidoDAO.getInstancia().remove(pp);
                 return pp;
             }
         }

@@ -21,6 +21,10 @@ public class PartidoDAO {
         cachePartidos.put(partidoPolitico.getCodigo(), partidoPolitico);
     }
 
+    public void remove (PartidoPolitico partidoPolitico){
+        cachePartidos.remove(partidoPolitico.getCodigo(), partidoPolitico);
+    }
+
     public Collection<PartidoPolitico> getList(){
         return cachePartidos.values();
     }

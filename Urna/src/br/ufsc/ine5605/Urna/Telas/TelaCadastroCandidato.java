@@ -14,24 +14,25 @@ import java.awt.event.ActionListener;
 
 public class TelaCadastroCandidato extends JFrame {
 
-    private ControladorCandidatos ctrlCandidatos;
     private JLabel lNome;
-    private JTextField nome;
+    private JTextField txNome;
     private JLabel lCod;
-    private JTextField codigo;
+    private JTextField txCodigo;
     private JLabel lPartidos;
-    private DefaultComboBoxModel<String> partidosCadastrados;
-    private JComboBox partidos;
+    private DefaultComboBoxModel<String> modeloPartidos;
+    private JComboBox cbPartidos;
     private JLabel lCargo;
-    private JComboBox cargo;
-    private JButton salva;
-    private JButton cancela;
+    private JComboBox cbCargo;
+    private JButton btSalva;
+    private JButton btCancela;
 
 
     public TelaCadastroCandidato (ControladorCandidatos ctrl){
         //Inicialização JFrame
         super("Candidatos");
-        ctrlCandidatos = ctrl;
+    }
+
+    public void criaTela(){
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -39,82 +40,88 @@ public class TelaCadastroCandidato extends JFrame {
         setLocationRelativeTo(null);
         GerenciadorBotoes btManager = new GerenciadorBotoes();
 
-        //Campo de nome
+        //Label de nome
         lNome = new JLabel("Nome:");
         c.gridx = 0;
         c.gridy = 0;
         container.add(lNome,c);
-
-        nome = new JTextField();
-        nome.setColumns(20);
+        //TextField de nome
+        txNome = new JTextField();
+        txNome.setColumns(20);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
-        c.gridy = 0;
-        container.add(nome,c);
+        container.add(txNome,c);
 
-        //Campo de código
+        //Label de código
         lCod = new JLabel("Codigo:");
         c.gridx = 0;
         c.gridy = 1;
         c.fill = GridBagConstraints.CENTER;
         container.add(lCod,c);
-
-        codigo = new JTextField();
-        codigo.setColumns(20);
+        //TextField de código
+        txCodigo = new JTextField();
+        txCodigo.setColumns(20);
         c.gridx = 1;
-        c.gridy = 1;
-        container.add(codigo, c);
+        container.add(txCodigo, c);
 
-        //Criação comboBox partidos
-        lPartidos = new JLabel("Partido:");
-        c.gridx = 0;
-        c.gridy = 2;
-        c.fill = GridBagConstraints.CENTER;
-        container.add(lPartidos,c);
-
-        partidosCadastrados = new DefaultComboBoxModel();
-        for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
-            partidosCadastrados.addElement(pp.getNome());
-        }
-        partidos = new JComboBox(partidosCadastrados);
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 1;
-        c.gridy = 2;
-        container.add(partidos, c);
-
-        //Criação comboBox Cargo
+        //Label de cargo
         lCargo = new JLabel("Cargo:");
         c.gridx = 0;
         c.gridy = 3;
         c.fill = GridBagConstraints.CENTER;
         container.add(lCargo, c);
-        
+
+        //Label de partido
+        lPartidos = new JLabel("Partido:");
+        c.gridy = 2;
+        c.fill = GridBagConstraints.CENTER;
+        container.add(lPartidos,c);
+
+        //config Botao salva
+        btSalva = new JButton("Salvar");
+        btSalva.setActionCommand("salva");
+        btSalva.addActionListener(btManager);
+        c.gridx = 1;
+        c.gridy = 5;
+        container.add(btSalva, c);
+
+        //config botao cancela
+        btCancela = new JButton("Cancelar");
+        btCancela.setActionCommand("cancela");
+        btCancela.addActionListener(btManager);
+        c.gridx = 0;
+        c.gridy = 5;
+        container.add(btCancela, c);
+
+    }
+
+    public void criaComboBox(){
+
+        GridBagConstraints c = new GridBagConstraints();
+        Container container = getContentPane();
+
+        //Criação comboBox partidos
+        modeloPartidos = new DefaultComboBoxModel();
+        for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
+            modeloPartidos.addElement(pp.getNome());
+        }
+        cbPartidos = new JComboBox(modeloPartidos);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 2;
+        container.add(cbPartidos, c);
+
+
+        //Criação comboBox Cargo
         String[] cargos = {"Prefeito"};
-        JComboBox cargo = new JComboBox(cargos);
+        cbCargo = new JComboBox(cargos);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 3;
-        container.add(cargo, c);
-
-        //config Botao salva
-        salva = new JButton("Salvar");
-        salva.setActionCommand("salva");
-        salva.addActionListener(btManager);
-        c.gridx = 1;
-        c.gridy = 5;
-        container.add(salva, c);
-
-        //config botao cancela
-        cancela = new JButton("Cancelar");
-        cancela.setActionCommand("cancela");
-        cancela.addActionListener(btManager);
-        c.gridx = 0;
-        c.gridy = 5;
-        container.add(cancela, c);
-
-
+        container.add(cbCargo, c);
 
     }
+
 
     private class GerenciadorBotoes implements ActionListener {
         @Override
@@ -122,7 +129,7 @@ public class TelaCadastroCandidato extends JFrame {
             switch (e.getActionCommand()){
                 case "salva":
                     try {
-                        Candidato novoCandidato = ctrlCandidatos.adiciona(nome.getText(), codigo.getText(), partidosCadastrados.getElementAt(partidos.getSelectedIndex()), CARGO.PREFEITO);
+                        Candidato novoCandidato = ControladorCandidatos.getInstancia().adiciona(txNome.getText(), txCodigo.getText(), modeloPartidos.getElementAt(cbPartidos.getSelectedIndex()), CARGO.PREFEITO);
                         if (novoCandidato == null){
                             JOptionPane.showMessageDialog(null, "Candidato ja existente.");
                         }else {
@@ -131,15 +138,15 @@ public class TelaCadastroCandidato extends JFrame {
                     } catch (CodigoNaoNumericoException e1) {
                         JOptionPane.showMessageDialog(null, e1.getMessage());
                     }finally {
-                        codigo.setText("");
-                        nome.setText("");
+                        txCodigo.setText("");
+                        txNome.setText("");
                     }
                     break;
                 case "cancela":
                     setVisible(false);
-                    codigo.setText("");
-                    nome.setText("");
-                    ctrlCandidatos.inicia();
+                    txCodigo.setText("");
+                    txNome.setText("");
+                    ControladorCandidatos.getInstancia().inicia();
                     break;
             }
         }

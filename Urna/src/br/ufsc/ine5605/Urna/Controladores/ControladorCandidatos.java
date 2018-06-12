@@ -1,5 +1,6 @@
 package br.ufsc.ine5605.Urna.Controladores;
 
+import br.ufsc.ine5605.Urna.DAOs.CandidatoDAO;
 import br.ufsc.ine5605.Urna.Elementos.CARGO;
 import br.ufsc.ine5605.Urna.Elementos.Candidato;
 import br.ufsc.ine5605.Urna.Elementos.PartidoPolitico;
@@ -8,34 +9,31 @@ import br.ufsc.ine5605.Urna.Telas.TelaCadastroCandidato;
 import br.ufsc.ine5605.Urna.Telas.TelaCandidato;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class ControladorCandidatos {
 
-    private ArrayList<Candidato> candidatos;
-    private ArrayList<PartidoPolitico> partidos;
-    private ControladorPartidos ctrlPartidos;
+    private static ControladorCandidatos controladorCandidatos;
     private TelaCandidato telaCandidato;
     private TelaCadastroCandidato telaCadastroCandidato;
 
-    public ControladorCandidatos() {
-        candidatos = new ArrayList<>();
+    private ControladorCandidatos() {
+    }
 
-        telaCadastroCandidato = new TelaCadastroCandidato(this);
-        telaCandidato = new TelaCandidato(this);
+    public static ControladorCandidatos getInstancia(){
+        if (controladorCandidatos == null){
+            controladorCandidatos = new ControladorCandidatos();
+        }
+        return controladorCandidatos;
     }
 
     public void inicia() {
-
-        telaCandidato = new TelaCandidato(this);
+        telaCandidato = new TelaCandidato();
         telaCandidato.setVisible(true);
     }
 
-    public ArrayList<PartidoPolitico> getPartidos() {
-        return partidos;
-    }
-
-    public ArrayList<Candidato> getCandidatos() {
-        return candidatos;
+    public Collection<Candidato> getCandidatos() {
+        return CandidatoDAO.getInstancia().getList();
     }
 
     public void novoCadastro() {
@@ -50,7 +48,7 @@ public class ControladorCandidatos {
             PartidoPolitico partidoPertencente = buscaPartido(partido);
             if (!(partidoPertencente == null) && !existe(nomeCandidato, numeroCandidato)) {
                 Candidato novoCandidato = new Candidato(nomeCandidato, numeroCandidato, cargo, partidoPertencente);
-                candidatos.add(novoCandidato);
+                CandidatoDAO.getInstancia().put(novoCandidato);
                 telaCadastroCandidato.setVisible(false);
                 inicia();
                 return novoCandidato;
@@ -63,7 +61,7 @@ public class ControladorCandidatos {
     }
 
     private PartidoPolitico buscaPartido(String partido) {
-        for (PartidoPolitico pp : partidos) {
+        for (PartidoPolitico pp : ControladorPartidos.getInstance().getPartidos()) {
             if (pp.getNome().equalsIgnoreCase(partido)) {
                 return pp;
             }
@@ -71,21 +69,28 @@ public class ControladorCandidatos {
         return null;
     }
 
-    public boolean existe(String nome, int numCandidato) {
-        for (Candidato candidato : candidatos) {
-            if (candidato.getNumCandidato() == numCandidato && candidato.getNome().equalsIgnoreCase(nome)) {
+    public boolean existe(String nome, int codigo) {
+        for (Candidato candidato : getCandidatos()) {
+            if (candidato.getCodigo() == codigo && candidato.getNome().equalsIgnoreCase(nome)) {
                 return true;
             }
         }
         return false;
     }
 
-    public Candidato exclui(int index, String nome) {
-        Candidato candidatoExcluido = candidatos.get(index);
-        if (candidatoExcluido.getNome().equalsIgnoreCase(nome)){
-            candidatos.remove(candidatoExcluido);
-            return candidatoExcluido;
+    public Candidato exclui(Object nomeObj) {
+        String nome = nomeObj.toString();
+        for (Candidato candidato : getCandidatos()){
+            if (candidato.getNome().equalsIgnoreCase(nome)){
+                CandidatoDAO.getInstancia().remove(candidato);
+                return candidato;
+            }
         }
         return null;
+    }
+
+    public void volta(){
+        telaCandidato.setVisible(false);
+        ControladorPrincipal.getInstancia().inicia();
     }
 }

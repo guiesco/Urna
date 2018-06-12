@@ -32,7 +32,11 @@ public class Candidato {
         return cargo;
     }
 
-    public int getNumCandidato(){
+    public int getCodigo(){
         return numCandidato;
+    }
+
+    public PartidoPolitico getPartido() {
+        return partido;
     }
 }

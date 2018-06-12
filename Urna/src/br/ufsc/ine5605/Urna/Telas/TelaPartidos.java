@@ -21,7 +21,6 @@ public class TelaPartidos extends JFrame {
     private JButton voltar;
 
     public TelaPartidos( ){
-
         //Inicialização JFrame
         super("Partidos");
         criaTela();
