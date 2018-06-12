@@ -4,18 +4,25 @@ import br.ufsc.ine5605.Urna.Telas.TelaPrincipal;
 
 public class ControladorPrincipal {
 
+    private static ControladorPrincipal controladorPrincipal;
     private TelaPrincipal telaPrincipal;
-    private ControladorPartidos ctrlPartidos;
     private ControladorCandidatos ctrlCandidatos;
     private ControladorEleitores ctrlEleitores;
     private SistemaVotacao sistVotacao;
 
-    public ControladorPrincipal(){
-        telaPrincipal = new TelaPrincipal(this);
-        ctrlPartidos = new ControladorPartidos();
-        ctrlCandidatos = new ControladorCandidatos(ctrlPartidos);
+
+    private ControladorPrincipal(){
+        telaPrincipal = new TelaPrincipal();
+        ctrlCandidatos = new ControladorCandidatos();
         ctrlEleitores = new ControladorEleitores();
         sistVotacao = new SistemaVotacao();
+    }
+
+    public static ControladorPrincipal getInstancia(){
+        if (controladorPrincipal == null){
+            controladorPrincipal = new ControladorPrincipal();
+        }
+        return controladorPrincipal;
     }
 
     public void inicia(){
@@ -26,7 +33,7 @@ public class ControladorPrincipal {
     public void selecionaModo (String modo){
         switch (modo) {
             case "1":
-                ctrlPartidos.inicia();
+                ControladorPartidos.getInstance().inicia();
                 break;
             case "2":
                 ctrlCandidatos.inicia();

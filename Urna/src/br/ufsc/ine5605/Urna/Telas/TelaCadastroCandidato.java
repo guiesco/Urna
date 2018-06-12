@@ -1,6 +1,7 @@
 package br.ufsc.ine5605.Urna.Telas;
 
 import br.ufsc.ine5605.Urna.Controladores.ControladorCandidatos;
+import br.ufsc.ine5605.Urna.DAOs.PartidoDAO;
 import br.ufsc.ine5605.Urna.Elementos.CARGO;
 import br.ufsc.ine5605.Urna.Elementos.Candidato;
 import br.ufsc.ine5605.Urna.Elementos.PartidoPolitico;
@@ -72,7 +73,7 @@ public class TelaCadastroCandidato extends JFrame {
         container.add(lPartidos,c);
 
         partidosCadastrados = new DefaultComboBoxModel();
-        for (PartidoPolitico pp : ctrlCandidatos.getPartidos()){
+        for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
             partidosCadastrados.addElement(pp.getNome());
         }
         partidos = new JComboBox(partidosCadastrados);

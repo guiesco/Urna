@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 
 public class TelaPrincipal extends JFrame {
 
-    private ControladorPrincipal ctrl;
     private JLabel bemvindo;
     private JLabel escolha;
     private JButton option1Button;
@@ -17,9 +16,8 @@ public class TelaPrincipal extends JFrame {
     private JButton option3Button;
     private JButton votacaoButton;
 
-    public TelaPrincipal(ControladorPrincipal ctrlP){
+    public TelaPrincipal(){
         super("Sistema de Urnas");
-        ctrl = ctrlP;
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -81,7 +79,7 @@ public class TelaPrincipal extends JFrame {
     private class GerenciadorBotoes implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent ae) {
-            ctrl.selecionaModo(ae.getActionCommand());
+            ControladorPrincipal.getInstancia().selecionaModo(ae.getActionCommand());
         }
     }
 }

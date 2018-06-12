@@ -1,9 +1,11 @@
 package br.ufsc.ine5605.Urna.Telas;
 
 import br.ufsc.ine5605.Urna.Controladores.ControladorPartidos;
+import br.ufsc.ine5605.Urna.DAOs.PartidoDAO;
 import br.ufsc.ine5605.Urna.Elementos.PartidoPolitico;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,18 +13,47 @@ import java.util.ArrayList;
 
 public class TelaPartidos extends JFrame {
 
-    private ControladorPartidos ctrlPartidos;
-    private JList partidos;
-    private DefaultListModel<String> partidosCadastrados;
+    private JTable partidos;
+    private DefaultTableModel modeloPartidos;
     private JLabel label;
     private JButton cadastro;
     private JButton excluir;
 
-    public TelaPartidos(ControladorPartidos ctrl){
+    public TelaPartidos( ){
 
         //Inicialização JFrame
         super("Partidos");
-        ctrlPartidos = ctrl;
+        criaTela();
+        criaTabela();
+    }
+
+    private void criaTabela(){
+        Container container = getContentPane();
+        GridBagConstraints c = new GridBagConstraints();
+        //Criação da lista nomes
+        modeloPartidos = new DefaultTableModel();
+        modeloPartidos.addColumn("Nome");
+        modeloPartidos.addColumn("Codigo");
+        for (PartidoPolitico pp : ControladorPartidos.getInstance().getPartidos()){
+            modeloPartidos.addRow( new Object [] {pp.getNome(), pp.getCodigo()});
+        }
+        //Iniciando JTable
+        partidos = new JTable(modeloPartidos);
+        partidos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        //inserindo no JSPane
+        JScrollPane listScroller = new JScrollPane(partidos);
+        listScroller.setPreferredSize(new Dimension(100, 50));
+        c.gridx = 1;
+        c.gridy = 1;
+        container.add(listScroller, c);
+
+
+
+    }
+
+    private void criaTela() {
+
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -30,28 +61,11 @@ public class TelaPartidos extends JFrame {
         setLocationRelativeTo(null);
         GerenciadorBotoes btManager = new GerenciadorBotoes();
 
-
         //Criação e posicionamento label
         label = new JLabel("Esses são os atuais partidos:");
         c.gridx = 1;
         c.gridy = 0;
         container.add(label, c);
-
-        //Criação da lista nomes
-        partidosCadastrados = new DefaultListModel();
-        partidosCadastrados.setSize(0);
-        for (PartidoPolitico pp : ctrlPartidos.getPartidos()){
-            partidosCadastrados.addElement(pp.getNome());
-        }
-        partidos = new JList(partidosCadastrados);
-        partidos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        partidos.setLayoutOrientation(JList.VERTICAL);
-        partidos.setVisibleRowCount(-1);
-        JScrollPane listScroller = new JScrollPane(partidos);
-        listScroller.setPreferredSize(new Dimension(100, 50));
-        c.gridx = 1;
-        c.gridy = 1;
-        container.add(partidos, c);
 
         //Config botão cadastro
         cadastro = new JButton("Cadastrar");
@@ -68,13 +82,14 @@ public class TelaPartidos extends JFrame {
         c.gridx = 4;
         c.gridy = 2;
         container.add(excluir, c);
+
     }
 
     public void exclui(){
-        int index = partidos.getSelectedIndex();
-        String nome = partidosCadastrados.get(index);
-        if (!(ctrlPartidos.exclui(index, nome) == null)){
-            partidosCadastrados.remove(index);
+        int index = partidos.getSelectedRow();
+        Object nome = modeloPartidos.getValueAt(index, 0);
+        if (!(ControladorPartidos.getInstance().exclui(nome) == null)){
+            modeloPartidos.removeRow(index);
         }else {
             JOptionPane.showMessageDialog(null, "Problema ao deletar partido.");
         }
@@ -87,7 +102,7 @@ public class TelaPartidos extends JFrame {
 
             switch (ae.getActionCommand()) {
                 case "cadastro":
-                    ctrlPartidos.novoCadastro();
+                    ControladorPartidos.getInstance().novoCadastro();
                     break;
                 case "exclusao":
                     if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o partido selecionado?", "Confirme", 2) == 0){

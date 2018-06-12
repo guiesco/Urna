@@ -17,16 +17,15 @@ public class ControladorCandidatos {
     private TelaCandidato telaCandidato;
     private TelaCadastroCandidato telaCadastroCandidato;
 
-    public ControladorCandidatos(ControladorPartidos ctrl) {
+    public ControladorCandidatos() {
         candidatos = new ArrayList<>();
-        ctrlPartidos = ctrl;
-        partidos = ctrlPartidos.getPartidos();
+
         telaCadastroCandidato = new TelaCadastroCandidato(this);
         telaCandidato = new TelaCandidato(this);
     }
 
     public void inicia() {
-        partidos = ctrlPartidos.getPartidos();
+
         telaCandidato = new TelaCandidato(this);
         telaCandidato.setVisible(true);
     }

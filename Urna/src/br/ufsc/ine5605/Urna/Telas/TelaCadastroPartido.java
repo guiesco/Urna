@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 
 public class TelaCadastroPartido extends JFrame {
 
-    private ControladorPartidos ctrl;
     private JLabel lNome;
     private JLabel lCod;
     private JTextField nome;
@@ -20,11 +19,10 @@ public class TelaCadastroPartido extends JFrame {
     private JButton cancela;
 
 
-    public TelaCadastroPartido(ControladorPartidos ctrlPartidos){
+    public TelaCadastroPartido( ){
 
         //Inicialização JFrame
         super("Partidos");
-        ctrl = ctrlPartidos;
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -85,7 +83,7 @@ public class TelaCadastroPartido extends JFrame {
             switch (e.getActionCommand()){
                 case "salva":
                     try {
-                        PartidoPolitico novoPartido = ctrl.adiciona(nome.getText(), codigo.getText());
+                        PartidoPolitico novoPartido = ControladorPartidos.getInstance().adiciona(nome.getText(), codigo.getText());
                         if (novoPartido == null){
                             JOptionPane.showMessageDialog(null, "Partido ja existente.");
                         }else {
@@ -102,7 +100,7 @@ public class TelaCadastroPartido extends JFrame {
                     setVisible(false);
                     codigo.setText("");
                     nome.setText("");
-                    ctrl.inicia();
+                    ControladorPartidos.getInstance().inicia();
                     break;
             }
         }

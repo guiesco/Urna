@@ -1,38 +1,39 @@
 package br.ufsc.ine5605.Urna.Controladores;
 
+import br.ufsc.ine5605.Urna.DAOs.PartidoDAO;
 import br.ufsc.ine5605.Urna.Elementos.PartidoPolitico;
 import br.ufsc.ine5605.Urna.Exceptions.CodigoNaoNumericoException;
 import br.ufsc.ine5605.Urna.Telas.TelaCadastroPartido;
 import br.ufsc.ine5605.Urna.Telas.TelaPartidos;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class ControladorPartidos {
 
-    private ArrayList<PartidoPolitico> partidos;
+    private static ControladorPartidos controladorPartidos;
     private TelaPartidos telaPartidos;
     private TelaCadastroPartido telaCadastroPartido;
 
 
-    public ControladorPartidos(){
-        partidos = new ArrayList<>();
-        telaPartidos = new TelaPartidos(this);
-        telaCadastroPartido = new TelaCadastroPartido(this);
+    private ControladorPartidos(){
     }
 
-    public ArrayList<PartidoPolitico> getPartidos() {
-        return partidos;
+    public static ControladorPartidos getInstance(){
+        if (controladorPartidos == null){
+            controladorPartidos = new ControladorPartidos();
+        }
+        return controladorPartidos;
     }
-
 
     public void inicia() {
-        telaPartidos = new TelaPartidos(this);
+        telaPartidos = new TelaPartidos();
         telaPartidos.setVisible(true);
     }
 
     public void novoCadastro() {
         telaPartidos.setVisible(false);
-        telaCadastroPartido = new TelaCadastroPartido(this);
+        telaCadastroPartido = new TelaCadastroPartido();
         telaCadastroPartido.setVisible(true);
     }
 
@@ -41,7 +42,7 @@ public class ControladorPartidos {
             int codigoPartido = Integer.parseInt(codigo);
             if(!existe(nomePartido, codigoPartido)) {
                 PartidoPolitico novoPartido = new PartidoPolitico(nomePartido, codigoPartido);
-                partidos.add(novoPartido);
+                PartidoDAO.getInstancia().put(novoPartido);
                 telaCadastroPartido.setVisible(false);
                 inicia();
                 return novoPartido;
@@ -54,7 +55,7 @@ public class ControladorPartidos {
     }
 
     public boolean existe(String nome, int codigoPartido) {
-        for (PartidoPolitico pp : partidos){
+        for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
             if (pp.getCodigo() == codigoPartido && pp.getNome().equalsIgnoreCase(nome)){
                 return true;
             }
@@ -63,13 +64,19 @@ public class ControladorPartidos {
     }
 
 
-    public PartidoPolitico exclui(int index, String nome) {
-        PartidoPolitico partido = partidos.get(index);
-        if (partido.getNome().equalsIgnoreCase(nome)){
-            partidos.remove(partido);
-            return partido;
+    public PartidoPolitico exclui(Object nomeObj) {
+        String nome = nomeObj.toString();
+        for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
+            if (pp.getNome().equalsIgnoreCase(nome)){
+                PartidoDAO.getInstancia().getList().remove(pp);
+                return pp;
+            }
         }
         return null;
+    }
+
+    public Collection<PartidoPolitico> getPartidos(){
+        return PartidoDAO.getInstancia().getList();
     }
 
 
