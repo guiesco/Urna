@@ -18,6 +18,7 @@ public class TelaPartidos extends JFrame {
     private JLabel label;
     private JButton cadastro;
     private JButton excluir;
+    private JButton voltar;
 
     public TelaPartidos( ){
 
@@ -30,6 +31,7 @@ public class TelaPartidos extends JFrame {
     private void criaTabela(){
         Container container = getContentPane();
         GridBagConstraints c = new GridBagConstraints();
+
         //Criação da lista nomes
         modeloPartidos = new DefaultTableModel();
         modeloPartidos.addColumn("Nome");
@@ -37,19 +39,17 @@ public class TelaPartidos extends JFrame {
         for (PartidoPolitico pp : ControladorPartidos.getInstance().getPartidos()){
             modeloPartidos.addRow( new Object [] {pp.getNome(), pp.getCodigo()});
         }
+
         //Iniciando JTable
         partidos = new JTable(modeloPartidos);
         partidos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         //inserindo no JSPane
         JScrollPane listScroller = new JScrollPane(partidos);
-        listScroller.setPreferredSize(new Dimension(100, 50));
+        listScroller.setPreferredSize(new Dimension(175, 75));
         c.gridx = 1;
         c.gridy = 1;
         container.add(listScroller, c);
-
-
-
     }
 
     private void criaTela() {
@@ -67,25 +67,31 @@ public class TelaPartidos extends JFrame {
         c.gridy = 0;
         container.add(label, c);
 
+        //Config botão voltar
+        voltar = new JButton("Voltar");
+        voltar.setActionCommand("volta");
+        voltar.addActionListener(btManager);
+        c.gridx = 0;
+        c.gridy = 2;
+        container.add(voltar, c);
+
         //Config botão cadastro
         cadastro = new JButton("Cadastrar");
         cadastro.setActionCommand("cadastro");
         cadastro.addActionListener(btManager);
-        c.gridx = 0;
-        c.gridy = 2;
+        c.gridx = 1;
         container.add(cadastro, c);
 
         //Config botão exclusao
         excluir = new JButton("Excluir");
         excluir.setActionCommand("exclusao");
         excluir.addActionListener(btManager);
-        c.gridx = 4;
-        c.gridy = 2;
+        c.gridx = 2;
         container.add(excluir, c);
 
     }
 
-    public void exclui(){
+    private void exclui(){
         int index = partidos.getSelectedRow();
         Object nome = modeloPartidos.getValueAt(index, 0);
         if (!(ControladorPartidos.getInstance().exclui(nome) == null)){
@@ -109,6 +115,8 @@ public class TelaPartidos extends JFrame {
                         exclui();
                     }
                     break;
+                case "volta":
+                    ControladorPartidos.getInstance().volta();
             }
         }
     }

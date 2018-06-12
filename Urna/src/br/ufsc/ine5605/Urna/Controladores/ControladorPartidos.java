@@ -54,7 +54,7 @@ public class ControladorPartidos {
         }
     }
 
-    public boolean existe(String nome, int codigoPartido) {
+    private boolean existe(String nome, int codigoPartido) {
         for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
             if (pp.getCodigo() == codigoPartido && pp.getNome().equalsIgnoreCase(nome)){
                 return true;
@@ -77,6 +77,11 @@ public class ControladorPartidos {
 
     public Collection<PartidoPolitico> getPartidos(){
         return PartidoDAO.getInstancia().getList();
+    }
+
+    public void volta(){
+        telaPartidos.setVisible(false);
+        ControladorPrincipal.getInstancia().inicia();
     }
 
 

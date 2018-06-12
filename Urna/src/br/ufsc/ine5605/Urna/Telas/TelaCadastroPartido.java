@@ -13,53 +13,54 @@ public class TelaCadastroPartido extends JFrame {
 
     private JLabel lNome;
     private JLabel lCod;
-    private JTextField nome;
-    private JTextField codigo;
+    private JTextField txNome;
+    private JTextField txCodigo;
     private JButton salva;
     private JButton cancela;
 
 
     public TelaCadastroPartido( ){
-
-        //Inicialização JFrame
         super("Partidos");
+        criaTela();
+    }
+
+    private void criaTela(){
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
         setSize(400, 150);
         setLocationRelativeTo(null);
+        GridBagConstraints c = new GridBagConstraints();
         GerenciadorBotoes btManager = new GerenciadorBotoes();
 
-        //Campo de nome
+        //Label de nome
         lNome = new JLabel("Nome:");
         c.gridx = 0;
         c.gridy = 0;
         container.add(lNome,c);
-        nome = new JTextField();
-        nome.setColumns(20);
+        //TextField de nome
+        txNome = new JTextField();
+        txNome.setColumns(20);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
-        c.gridy = 0;
-        container.add(nome,c);
+        container.add(txNome,c);
 
-        //Campo de código
+        //Label de código
         lCod = new JLabel("Codigo:");
         c.fill = GridBagConstraints.CENTER;
         c.gridx = 0;
         c.gridy = 1;
         container.add(lCod,c);
-        codigo = new JTextField();
-        codigo.setColumns(20);
+        //TextField de código
+        txCodigo = new JTextField();
+        txCodigo.setColumns(20);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
-        c.gridy = 1;
-        container.add(codigo, c);
+        container.add(txCodigo, c);
 
         //config Botao salva
         salva = new JButton("Salvar");
         salva.setActionCommand("salva");
         salva.addActionListener(btManager);
-        c.gridx = 1;
         c.gridy = 2;
         container.add(salva, c);
 
@@ -68,12 +69,8 @@ public class TelaCadastroPartido extends JFrame {
         cancela.setActionCommand("cancela");
         cancela.addActionListener(btManager);
         c.gridx = 0;
-        c.gridy = 2;
         container.add(cancela, c);
-    }
 
-    public JTextField getNome() {
-        return nome;
     }
 
     private class GerenciadorBotoes implements ActionListener {
@@ -83,7 +80,7 @@ public class TelaCadastroPartido extends JFrame {
             switch (e.getActionCommand()){
                 case "salva":
                     try {
-                        PartidoPolitico novoPartido = ControladorPartidos.getInstance().adiciona(nome.getText(), codigo.getText());
+                        PartidoPolitico novoPartido = ControladorPartidos.getInstance().adiciona(txNome.getText(), txCodigo.getText());
                         if (novoPartido == null){
                             JOptionPane.showMessageDialog(null, "Partido ja existente.");
                         }else {
@@ -92,14 +89,14 @@ public class TelaCadastroPartido extends JFrame {
                     } catch (CodigoNaoNumericoException e1) {
                         JOptionPane.showMessageDialog(null, e1.getMessage());
                     }finally {
-                        codigo.setText("");
-                        nome.setText("");
+                        txCodigo.setText("");
+                        txNome.setText("");
                     }
                     break;
                 case "cancela":
                     setVisible(false);
-                    codigo.setText("");
-                    nome.setText("");
+                    txCodigo.setText("");
+                    txNome.setText("");
                     ControladorPartidos.getInstance().inicia();
                     break;
             }
