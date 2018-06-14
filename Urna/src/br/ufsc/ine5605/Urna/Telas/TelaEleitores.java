@@ -66,8 +66,9 @@ public class TelaEleitores extends JFrame {
         modeloTabelaEleitores = new DefaultTableModel();
         modeloTabelaEleitores.addColumn("Titulo");
         modeloTabelaEleitores.addColumn("Zona");
+        modeloTabelaEleitores.addColumn("Secao");
         for (Eleitor eleitores : ControladorEleitores.getInstance().getEleitores()){
-            modeloTabelaEleitores.addRow( new Object [] {eleitores.getCodigo(), });
+            modeloTabelaEleitores.addRow( new Object [] {eleitores.getCodigo(), eleitores.getZona(), eleitores.getSecao()});
         }
         
         //Iniciando JTable
@@ -88,7 +89,7 @@ public class TelaEleitores extends JFrame {
         if (!(ControladorEleitores.getInstance().exclui(titulo) == null)){ //fazer meteodo pra excluir no controlador de eleitor como tem no de partido
             modeloTabelaEleitores.removeRow(index);
         }else {
-            JOptionPane.showMessageDialog(null, "Problema ao deletar partido.");
+            JOptionPane.showMessageDialog(null, "Problema ao deletar eleitor.");
         }
     }
 
@@ -101,7 +102,7 @@ public class TelaEleitores extends JFrame {
                     ControladorEleitores.getInstance().novoCadastro(); 
                     break;
                 case "exclusao":
-                    if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o partido selecionado?", "Confirme", 2) == 0){
+                    if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o eleitor selecionado?", "Confirme", 2) == 0){
                         exclui();
                     }
                     break;
