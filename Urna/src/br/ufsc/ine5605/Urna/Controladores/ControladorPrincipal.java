@@ -12,7 +12,6 @@ public class ControladorPrincipal {
 
     private ControladorPrincipal(){
         telaPrincipal = new TelaPrincipal();
-        ctrlEleitores = new ControladorEleitores();
         sistVotacao = new SistemaVotacao();
     }
 
