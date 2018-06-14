@@ -62,7 +62,7 @@ public class TelaCadastroEleitor extends JFrame {
         c.gridy = 0;
         container.add(titulo,c);
 
-        //Campo para definir a zona do novo eleitor
+        /*Campo para definir a zona do novo eleitor
         lZona = new JLabel("Zona:");
         c.gridx = 0;
         c.gridy = 1;
@@ -73,7 +73,7 @@ public class TelaCadastroEleitor extends JFrame {
         zona.setColumns(20);
         c.gridx = 1;
         c.gridy = 1;
-        container.add(zona, c);
+        container.add(zona, c); */
 
         //Criação para definir a secao do novo eleitor
         lZona = new JLabel("Zona:");
@@ -91,7 +91,7 @@ public class TelaCadastroEleitor extends JFrame {
         c.gridx = 1;
         c.gridy = 2;
         container.add(zonas, c);
-
+  
         //Definir a secao de votacao do eleitor
         lSecao = new JLabel("Secao:");
         c.gridx = 0;
@@ -100,14 +100,14 @@ public class TelaCadastroEleitor extends JFrame {
         container.add(lSecao, c);
         
         secoesCadastradas = new DefaultComboBoxModel();
-        secoesCadastradas.addElement("1");
-        secoesCadastradas.addElement("2");
+        secoesCadastradas.addElement("Sessao um");
+        secoesCadastradas.addElement("Sessao dois");
         
-        secoes = new JComboBox(secoesCadastradas);
+        secoes = new JComboBox(secoesCadastradas); //tem que descobrir qual a treta aqui
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
-        c.gridy = 2;
-        container.add(secoes, c);
+        c.gridy = 3;
+        container.add(secoes, c); 
 
         //config Botao salva
         salvar = new JButton("Salvar");
@@ -136,9 +136,10 @@ public class TelaCadastroEleitor extends JFrame {
                 case "salva":
                     try {
                         Eleitor novoEleitor = new Eleitor(0, 0, Zona.Florianopolis);
-                        int secaoEleitor = Integer.parseInt(secao.getText().toString());
-                        int tituloEleitor = Integer.parseInt(titulo.getText().toString());
-                        if (zona.equals("Florianopolis")) {
+                        int secaoEleitor = Integer.parseInt(secoes.getSelectedItem().toString());
+                        int tituloEleitor = Integer.parseInt(titulo.getText());
+                        String zonaEleitor = zonas.getSelectedItem().toString();
+                        if (zonaEleitor.equals("Florianopolis")) {
                             novoEleitor = ControladorEleitores.getInstance().adiciona(secaoEleitor, tituloEleitor, Zona.Florianopolis);
                         }else{
                             novoEleitor = ControladorEleitores.getInstance().adiciona(secaoEleitor, tituloEleitor, Zona.Sao_Jose);
@@ -151,9 +152,9 @@ public class TelaCadastroEleitor extends JFrame {
                     } catch (CodigoNaoNumericoException e1) {
                         JOptionPane.showMessageDialog(null, e1.getMessage());
                     }finally {
-                        titulo.setText("");
-                        secao.setText("");
-                        zona.setText("");
+                        //titulo.setText("");
+                        //secao.setText("");
+                        //zona.setText("");
                     }
                     break;
                 case "cancela":
