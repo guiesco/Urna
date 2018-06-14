@@ -1,44 +1,86 @@
 package br.ufsc.ine5605.Urna.Controladores;
 
+import br.ufsc.ine5605.Urna.DAOs.EleitorDAO;
 import br.ufsc.ine5605.Urna.Elementos.Eleitor;
 import br.ufsc.ine5605.Urna.Elementos.Zona;
+import br.ufsc.ine5605.Urna.Exceptions.CodigoNaoNumericoException;
+import br.ufsc.ine5605.Urna.Telas.TelaCadastroEleitor;
 import br.ufsc.ine5605.Urna.Telas.TelaEleitores;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class ControladorEleitores {
 
-    private ArrayList<Eleitor> eleitores;
+    private static ControladorEleitores controladorEleitores;
     private TelaEleitores telaEleitores;
+    private TelaCadastroEleitor telaCadastroEleitor;
     private String objeto = "eleitor";
-
-    public ControladorEleitores(){
-        eleitores = new ArrayList<>();
-        telaEleitores = new TelaEleitores(this);
+    
+    private ControladorEleitores() {
     }
 
-    public ArrayList<Eleitor> getEleitores() {
-        return eleitores;
+    public static ControladorEleitores getInstance(){
+        if (controladorEleitores == null){
+            controladorEleitores = new ControladorEleitores();
+        }
+        return controladorEleitores;
     }
-
 
     public String getNome() {
         return this.objeto;
     }
 
 
-    public String novoCadastro( ) {
-        return null;
-    }
-
-
-    public String exclui(String nome) {
-        return null;
-    }
-
-
-
     public void inicia() {
+        telaEleitores = new TelaEleitores();
         telaEleitores.setVisible(true);
+    }
+    
+    public void novoCadastro() {
+        telaEleitores.setVisible(false);
+        telaCadastroEleitor = new TelaCadastroEleitor(this);
+        telaCadastroEleitor.setVisible(true);
+    }
+
+    public Eleitor adiciona (int secao, int tituloEleitor, Zona zona) throws CodigoNaoNumericoException{
+        try {
+            if(!existe(tituloEleitor)) {
+                 Eleitor novoEleitor = new Eleitor(secao, tituloEleitor, zona);
+                 EleitorDAO.getInstancia().put(novoEleitor);
+                telaCadastroEleitor.setVisible(false);
+                inicia();
+                return novoEleitor;
+            }else {
+                return null;
+            }
+        }catch (Exception e){
+            throw new CodigoNaoNumericoException();
+        }
+    }
+
+    public boolean existe(int tituloEleitor) {
+        for (Eleitor eleitores : EleitorDAO.getInstancia().getList()){
+            if (eleitores.getCodigo() == tituloEleitor){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    public Eleitor exclui(Object tituloEleitor) {
+        int titulo = Integer.parseInt(tituloEleitor.toString());
+        for (Eleitor eleitores : EleitorDAO.getInstancia().getList()){
+            if (eleitores.getCodigo() == titulo){
+                EleitorDAO.getInstancia().getList().remove(eleitores);
+                return eleitores;
+            }
+        }
+        return null;
+    }
+
+    public Collection<Eleitor> getEleitores(){
+        return EleitorDAO.getInstancia().getList();
     }
 }
