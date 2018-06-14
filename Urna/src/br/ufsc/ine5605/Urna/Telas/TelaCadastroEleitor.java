@@ -135,11 +135,13 @@ public class TelaCadastroEleitor extends JFrame {
             switch (e.getActionCommand()){
                 case "salva":
                     try {
-                        Eleitor novoEleitor = ControladorEleitores.getInstance().adiciona(secao.getText(), titulo.getText(), Zona.Florianopolis);
+                        Eleitor novoEleitor = new Eleitor(0, 0, Zona.Florianopolis);
+                        int secaoEleitor = Integer.parseInt(secao.getText().toString());
+                        int tituloEleitor = Integer.parseInt(titulo.getText().toString());
                         if (zona.equals("Florianopolis")) {
-                            novoEleitor = ControladorEleitores.getInstance().adiciona(secao.getText(), titulo.getText(), Zona.Florianopolis);
+                            novoEleitor = ControladorEleitores.getInstance().adiciona(secaoEleitor, tituloEleitor, Zona.Florianopolis);
                         }else{
-                            novoEleitor = ControladorEleitores.getInstance().adiciona(secao.getText(), titulo.getText(), Zona.Sao_Jose);
+                            novoEleitor = ControladorEleitores.getInstance().adiciona(secaoEleitor, tituloEleitor, Zona.Sao_Jose);
                         }
                         if (novoEleitor == null){
                             JOptionPane.showMessageDialog(null, "Candidato ja existente.");
@@ -149,7 +151,7 @@ public class TelaCadastroEleitor extends JFrame {
                     } catch (CodigoNaoNumericoException e1) {
                         JOptionPane.showMessageDialog(null, e1.getMessage());
                     }finally {
-                        titulo.setText(""); //nao sei p que q eh isso
+                        titulo.setText("");
                         secao.setText("");
                         zona.setText("");
                     }
