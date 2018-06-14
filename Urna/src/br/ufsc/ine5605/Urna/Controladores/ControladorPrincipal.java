@@ -36,7 +36,7 @@ public class ControladorPrincipal {
                 ControladorCandidatos.getInstancia().inicia();
                 break;
             case "3":
-                ctrlEleitores.inicia();
+                ControladorEleitores.getInstance().inicia();
                 break;
             case "4":
                 sistVotacao.inicia();
