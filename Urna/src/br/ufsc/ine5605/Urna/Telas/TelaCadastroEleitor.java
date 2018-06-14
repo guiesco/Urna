@@ -100,14 +100,14 @@ public class TelaCadastroEleitor extends JFrame {
         container.add(lSecao, c);
         
         secoesCadastradas = new DefaultComboBoxModel();
-        secoesCadastradas.addElement("Sessao um");
-        secoesCadastradas.addElement("Sessao dois");
+        secoesCadastradas.addElement("1");
+        secoesCadastradas.addElement("2");
         
         secoes = new JComboBox(secoesCadastradas); //tem que descobrir qual a treta aqui
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 3;
-        container.add(secoes, c); 
+        container.add(secoes, c);
 
         //config Botao salva
         salvar = new JButton("Salvar");
@@ -136,9 +136,14 @@ public class TelaCadastroEleitor extends JFrame {
                 case "salva":
                     try {
                         Eleitor novoEleitor = new Eleitor(0, 0, Zona.Florianopolis);
-                        int secaoEleitor = Integer.parseInt(secoes.getSelectedItem().toString());
+                        int secaoEleitor = 0;
                         int tituloEleitor = Integer.parseInt(titulo.getText());
                         String zonaEleitor = zonas.getSelectedItem().toString();
+                        if (secoes.getSelectedItem().toString().equals("1")) {
+                            secaoEleitor = 1;
+                        }else{
+                            secaoEleitor = 2;
+                        }
                         if (zonaEleitor.equals("Florianopolis")) {
                             novoEleitor = ControladorEleitores.getInstance().adiciona(secaoEleitor, tituloEleitor, Zona.Florianopolis);
                         }else{
