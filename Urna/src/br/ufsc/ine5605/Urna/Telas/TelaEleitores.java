@@ -22,11 +22,11 @@ public class TelaEleitores extends JFrame {
     public TelaEleitores(){
         super("Eleitores");
         //Inicialização JFrame
+        
+        cadastrar = new JButton("Cadastrar eleitor");
+        excluir = new JButton("Excluir eleitor");
         criaTela();
         criaTabela();
-
-        cadastrar = new JButton("Cadastrar novo eleitor");
-        excluir = new JButton("Excluir candidato");
     }
 
     private void criaTela() {
@@ -64,10 +64,10 @@ public class TelaEleitores extends JFrame {
         
         //Criação da lista nomes
         modeloTabelaEleitores = new DefaultTableModel();
-        modeloTabelaEleitores.addColumn("Nome");
-        modeloTabelaEleitores.addColumn("Codigo");
+        modeloTabelaEleitores.addColumn("Titulo");
+        modeloTabelaEleitores.addColumn("Zona");
         for (Eleitor eleitores : ControladorEleitores.getInstance().getEleitores()){
-            modeloTabelaEleitores.addRow( new Object [] {eleitores.getCodigo()});
+            modeloTabelaEleitores.addRow( new Object [] {eleitores.getCodigo(), });
         }
         
         //Iniciando JTable
