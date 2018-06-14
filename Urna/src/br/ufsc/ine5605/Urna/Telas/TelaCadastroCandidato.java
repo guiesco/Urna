@@ -30,6 +30,8 @@ public class TelaCadastroCandidato extends JFrame {
     public TelaCadastroCandidato (ControladorCandidatos ctrl){
         //Inicialização JFrame
         super("Candidatos");
+        criaTela();
+        criaComboBox();
     }
 
     public void criaTela(){
