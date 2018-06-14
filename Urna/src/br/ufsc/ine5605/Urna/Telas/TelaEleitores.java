@@ -98,7 +98,7 @@ public class TelaEleitores extends JFrame {
         public void actionPerformed(ActionEvent ae) {
             switch (ae.getActionCommand()) {
                 case "cadastro":
-                    ControladorEleitores.getInstance().novoCadastro(); //fazer metodo pra cadastrar como tem no controlador de partidos
+                    ControladorEleitores.getInstance().novoCadastro(); 
                     break;
                 case "exclusao":
                     if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o partido selecionado?", "Confirme", 2) == 0){
