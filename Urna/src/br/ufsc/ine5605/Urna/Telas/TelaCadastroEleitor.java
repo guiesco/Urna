@@ -22,8 +22,7 @@ import java.awt.event.ActionListener;
  * @author Caroline Ignácio
  */
 public class TelaCadastroEleitor extends JFrame {
-    
-    private ControladorEleitores ctrlEleitores;
+
     private JLabel lTitulo;
     private JTextField titulo;
     private JLabel lZona;

@@ -1,6 +1,7 @@
 package br.ufsc.ine5605.Urna.Telas;
 
 import br.ufsc.ine5605.Urna.Controladores.ControladorEleitores;
+import br.ufsc.ine5605.Urna.Controladores.ControladorPrincipal;
 import br.ufsc.ine5605.Urna.Elementos.Eleitor;
 
 import javax.swing.*;
@@ -15,16 +16,13 @@ public class TelaEleitores extends JFrame {
 
     private JButton cadastrar;
     private JButton excluir;
+    private JButton voltar;
     private JTable eleitores;
     private DefaultTableModel modeloTabelaEleitores;
     private JLabel label;
 
     public TelaEleitores(){
         super("Eleitores");
-        //Inicialização JFrame
-        
-        cadastrar = new JButton("Cadastrar eleitor");
-        excluir = new JButton("Excluir eleitor");
         criaTela();
         criaTabela();
     }
@@ -43,18 +41,26 @@ public class TelaEleitores extends JFrame {
         c.gridy = 0;
         container.add(label, c);
 
-        //Config botão cadastro
-        cadastrar.setActionCommand("cadastro");
-        cadastrar.addActionListener(btManager);
+        //Config botão voltar
+        voltar = new JButton("Voltar");
+        voltar.setActionCommand("volta");
+        voltar.addActionListener(btManager);
         c.gridx = 0;
         c.gridy = 2;
+        container.add(voltar, c);
+
+        //Config botão cadastro
+        cadastrar = new JButton("Cadastrar");
+        cadastrar.setActionCommand("cadastro");
+        cadastrar.addActionListener(btManager);
+        c.gridx = 1;
         container.add(cadastrar, c);
 
         //Config botão exclusao
+        excluir = new JButton("Excluir");
         excluir.setActionCommand("exclusao");
         excluir.addActionListener(btManager);
-        c.gridx = 4;
-        c.gridy = 2;
+        c.gridx = 2;
         container.add(excluir, c);
     }
 
@@ -77,7 +83,7 @@ public class TelaEleitores extends JFrame {
 
         //inserindo no JSPane
         JScrollPane listScroller = new JScrollPane(eleitores);
-        listScroller.setPreferredSize(new Dimension(100, 50));
+        listScroller.setPreferredSize(new Dimension(175, 75));
         c.gridx = 1;
         c.gridy = 1;
         container.add(listScroller, c);
@@ -106,6 +112,8 @@ public class TelaEleitores extends JFrame {
                         exclui();
                     }
                     break;
+                case "volta":
+                    ControladorEleitores.getInstance().volta();
             }
         }
     }

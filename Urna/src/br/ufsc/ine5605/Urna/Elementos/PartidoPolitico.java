@@ -1,6 +1,10 @@
 package br.ufsc.ine5605.Urna.Elementos;
 
-public class PartidoPolitico {
+import java.io.Serializable;
+
+public class PartidoPolitico implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String nome;
     private int codigo;

@@ -71,7 +71,7 @@ public class ControladorCandidatos {
 
     public boolean existe(String nome, int codigo) {
         for (Candidato candidato : getCandidatos()) {
-            if (candidato.getCodigo() == codigo && candidato.getNome().equalsIgnoreCase(nome)) {
+            if (candidato.getCodigo() == codigo || candidato.getNome().equalsIgnoreCase(nome)) {
                 return true;
             }
         }

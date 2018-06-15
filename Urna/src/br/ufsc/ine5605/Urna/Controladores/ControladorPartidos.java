@@ -6,6 +6,7 @@ import br.ufsc.ine5605.Urna.Exceptions.CodigoNaoNumericoException;
 import br.ufsc.ine5605.Urna.Telas.TelaCadastroPartido;
 import br.ufsc.ine5605.Urna.Telas.TelaPartidos;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -17,6 +18,7 @@ public class ControladorPartidos {
 
 
     private ControladorPartidos(){
+
     }
 
     public static ControladorPartidos getInstance(){
@@ -55,8 +57,10 @@ public class ControladorPartidos {
     }
 
     private boolean existe(String nome, int codigoPartido) {
+
         for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
-            if (pp.getCodigo() == codigoPartido && pp.getNome().equalsIgnoreCase(nome)){
+            System.out.println(pp.getNome() + pp.getCodigo());
+            if (pp.getCodigo() == codigoPartido || pp.getNome().equalsIgnoreCase(nome)){
                 return true;
             }
         }

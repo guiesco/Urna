@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5df276cf-653d-4970-a28d-e461d008352a" name="Default" comment="">
+    <list default="true" id="5df276cf-653d-4970-a28d-e461d008352a" name="Default" comment="- Adicionado persistencia aos DAOs&#10;- Criação dos arquivos .dat que armazenam persistencia&#10;- Ajuste da tela de Eleitores para o padrão&#10;- Correção do método existe() nos controladores de partido e candidato&#10;- Elementos tornados Serializable(serializaveis)">
+      <change beforePath="" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/candidatos.dat" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/eleitores.dat" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/partidos.dat" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorEleitores.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorEleitores.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/EleitorDAO.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/EleitorDAO.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Candidato.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Candidato.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Eleitor.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Eleitor.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/PartidoPolitico.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/PartidoPolitico.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroEleitor.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroEleitor.java" />
+      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaEleitores.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaEleitores.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,7 +27,127 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ControladorPartidos.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+              <folding>
+                <element signature="e#2588#2589#0" expanded="true" />
+                <element signature="e#2646#2647#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControladorPrincipal.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPrincipal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="36" column="22" lean-forward="true" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControladorEleitores.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorEleitores.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControladorCandidatos.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1054">
+              <caret line="73" column="50" lean-forward="false" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PartidoDAO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+              <folding>
+                <element signature="method#getInstancia#0;class#PartidoDAO#0" expanded="false" />
+                <element signature="e#682#683#0" expanded="true" />
+                <element signature="e#704#705#0" expanded="true" />
+                <element signature="method#load#0;class#PartidoDAO#0" expanded="false" />
+                <element signature="method#put#0;class#PartidoDAO#0" expanded="false" />
+                <element signature="method#remove#0;class#PartidoDAO#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CandidatoDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="50" column="22" lean-forward="false" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+              <folding>
+                <element signature="method#getInstancia#0;class#CandidatoDAO#0" expanded="false" />
+                <element signature="method#persist#0;class#CandidatoDAO#0" expanded="false" />
+                <element signature="method#load#0;class#CandidatoDAO#0" expanded="false" />
+                <element signature="method#put#0;class#CandidatoDAO#0" expanded="false" />
+                <element signature="method#remove#0;class#CandidatoDAO#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="candidatos.dat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/candidatos.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="partidos.dat" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/partidos.dat">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EleitorDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/EleitorDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+              <folding>
+                <element signature="e#891#892#0" expanded="true" />
+                <element signature="e#913#914#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TelaCadastroPartido.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroPartido.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-595">
+              <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,6 +165,11 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Guilherme Escobar &lt;guieslopes99@hotmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
@@ -42,16 +181,22 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroPartido.java" />
-        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java" />
-        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java" />
-        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java" />
         <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPrincipal.java" />
         <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaPartidos.java" />
-        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Candidato.java" />
-        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java" />
         <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCandidato.java" />
         <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroCandidato.java" />
         <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/CARGO.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/PartidoPolitico.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Eleitor.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Candidato.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroEleitor.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaEleitores.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorEleitores.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/EleitorDAO.java" />
+        <option value="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java" />
       </list>
     </option>
   </component>
@@ -85,7 +230,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,21 +276,32 @@
               <item name="Urna" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Urna" type="462c0819:PsiDirectoryNode" />
+              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Urna" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Urna" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Urna" type="462c0819:PsiDirectoryNode" />
               <item name="Telas" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\48687223870\Documents\projetos\ufsc\dso\Urna\Urna\src\br\ufsc\ine5605\Urna\DAOs" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -301,25 +458,28 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10061000" />
+    <option name="totallyTimeSpent" value="19332000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34247968" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -330,10 +490,37 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -370,10 +557,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tudo ok" />
     <MESSAGE value="-Criação DAO do candidato&#10;-Adaptação e renovação das telas e controlador de CANDIDATO&#10;-Adição do atributo &quot;nome&quot; para CARGO" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Criação DAO do candidato&#10;-Adaptação e renovação das telas e controlador de CANDIDATO&#10;-Adição do atributo &quot;nome&quot; para CARGO" />
+    <MESSAGE value="- Adicionado persistencia aos DAOs&#10;- Criação dos arquivos .dat que armazenam persistencia&#10;- Ajuste da tela de Eleitores para o padrão&#10;- Correção do método existe() nos controladores de partido e candidato&#10;- Elementos tornados Serializable(serializaveis)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Adicionado persistencia aos DAOs&#10;- Criação dos arquivos .dat que armazenam persistencia&#10;- Ajuste da tela de Eleitores para o padrão&#10;- Correção do método existe() nos controladores de partido e candidato&#10;- Elementos tornados Serializable(serializaveis)" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -389,8 +579,8 @@
         <state relative-caret-position="1377">
           <caret line="92" column="38" lean-forward="false" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
           <folding>
-            <element signature="e#1107#1108#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
+            <element signature="e#1107#1108#0" expanded="false" />
+            <element signature="e#1167#1168#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -416,10 +606,10 @@
         <state relative-caret-position="68">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
           <folding>
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="false" />
+            <element signature="e#190#191#0" expanded="false" />
+            <element signature="e#221#222#0" expanded="false" />
+            <element signature="e#248#249#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -445,11 +635,9 @@
         <state relative-caret-position="306">
           <caret line="24" column="65" lean-forward="false" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2016#2017#0" expanded="false" />
+            <element signature="e#2104#2105#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -459,8 +647,8 @@
         <state relative-caret-position="476">
           <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="23" />
           <folding>
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="false" />
+            <element signature="e#909#910#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -493,8 +681,8 @@
         <state relative-caret-position="1377">
           <caret line="92" column="38" lean-forward="false" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
           <folding>
-            <element signature="e#1107#1108#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
+            <element signature="e#1107#1108#0" expanded="false" />
+            <element signature="e#1167#1168#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -512,10 +700,10 @@
         <state relative-caret-position="68">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
           <folding>
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="false" />
+            <element signature="e#190#191#0" expanded="false" />
+            <element signature="e#221#222#0" expanded="false" />
+            <element signature="e#248#249#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -541,11 +729,9 @@
         <state relative-caret-position="306">
           <caret line="24" column="65" lean-forward="false" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2016#2017#0" expanded="false" />
+            <element signature="e#2104#2105#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -555,8 +741,8 @@
         <state relative-caret-position="476">
           <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="23" />
           <folding>
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
+            <element signature="e#879#880#0" expanded="false" />
+            <element signature="e#909#910#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -569,73 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/MAIN.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPrincipal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="36" column="52" lean-forward="false" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="73" lean-forward="true" selection-start-line="24" selection-start-column="73" selection-end-line="24" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="92" column="38" lean-forward="false" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
-          <folding>
-            <element signature="e#1107#1108#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCandidato.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1598">
-          <caret line="0" column="35" lean-forward="true" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="72" column="13" lean-forward="false" selection-start-line="72" selection-start-column="13" selection-end-line="72" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroPartido.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroCandidato.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="103" column="25" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorEleitores.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -645,19 +768,11 @@
         <state relative-caret-position="68">
           <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
           <folding>
-            <element signature="e#158#159#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#158#159#0" expanded="false" />
+            <element signature="e#190#191#0" expanded="false" />
+            <element signature="e#221#222#0" expanded="false" />
+            <element signature="e#248#249#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaPartidos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="50" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -669,27 +784,186 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java">
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Candidato.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="65" lean-forward="false" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
+        <state relative-caret-position="68">
+          <caret line="6" column="52" lean-forward="false" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Eleitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/PartidoPolitico.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="52" lean-forward="false" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/eleitores.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroEleitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2053">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaEleitores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="115" column="28" lean-forward="true" selection-start-line="115" selection-start-column="28" selection-end-line="115" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/MAIN.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCandidato.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaPartidos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="117" column="31" lean-forward="true" selection-start-line="117" selection-start-column="31" selection-end-line="117" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroPartido.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-595">
+          <caret line="26" column="11" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/io/IOException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="38" column="6" lean-forward="false" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#577#578#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
+            <element signature="e#757#758#0" expanded="false" />
+            <element signature="e#780#781#0" expanded="false" />
+            <element signature="e#1063#1064#0" expanded="false" />
+            <element signature="e#1093#1094#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Candidato.java">
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/EleitorDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="39" column="8" lean-forward="false" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="23" />
+        <state relative-caret-position="1224">
+          <caret line="81" column="5" lean-forward="true" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
           <folding>
-            <element signature="e#771#772#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#913#914#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+          <folding>
+            <element signature="e#2588#2589#0" expanded="true" />
+            <element signature="e#2646#2647#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPrincipal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="36" column="22" lean-forward="true" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorEleitores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="73" column="50" lean-forward="false" selection-start-line="73" selection-start-column="50" selection-end-line="73" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="50" column="22" lean-forward="false" selection-start-line="50" selection-start-column="22" selection-end-line="50" selection-end-column="22" />
+          <folding>
+            <element signature="method#getInstancia#0;class#CandidatoDAO#0" expanded="false" />
+            <element signature="method#persist#0;class#CandidatoDAO#0" expanded="false" />
+            <element signature="method#load#0;class#CandidatoDAO#0" expanded="false" />
+            <element signature="method#put#0;class#CandidatoDAO#0" expanded="false" />
+            <element signature="method#remove#0;class#CandidatoDAO#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/candidatos.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/partidos.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="39" column="12" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+          <folding>
+            <element signature="method#getInstancia#0;class#PartidoDAO#0" expanded="false" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="method#load#0;class#PartidoDAO#0" expanded="false" />
+            <element signature="method#put#0;class#PartidoDAO#0" expanded="false" />
+            <element signature="method#remove#0;class#PartidoDAO#0" expanded="false" />
           </folding>
         </state>
       </provider>

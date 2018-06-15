@@ -1,6 +1,10 @@
 package br.ufsc.ine5605.Urna.Elementos;
 
-public class Eleitor {
+import java.io.Serializable;
+
+public class Eleitor implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int secao;
     private int codigo;

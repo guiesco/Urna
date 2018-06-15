@@ -7,7 +7,6 @@ import br.ufsc.ine5605.Urna.Exceptions.CodigoNaoNumericoException;
 import br.ufsc.ine5605.Urna.Telas.TelaCadastroEleitor;
 import br.ufsc.ine5605.Urna.Telas.TelaEleitores;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class ControladorEleitores {
@@ -15,7 +14,6 @@ public class ControladorEleitores {
     private static ControladorEleitores controladorEleitores;
     private TelaEleitores telaEleitores;
     private TelaCadastroEleitor telaCadastroEleitor;
-    private String objeto = "eleitor";
     
     private ControladorEleitores() {
     }
@@ -27,11 +25,6 @@ public class ControladorEleitores {
         return controladorEleitores;
     }
 
-    public String getNome() {
-        return this.objeto;
-    }
-
-
     public void inicia() {
         telaEleitores = new TelaEleitores();
         telaEleitores.setVisible(true);
@@ -41,6 +34,11 @@ public class ControladorEleitores {
         telaEleitores.setVisible(false);
         telaCadastroEleitor = new TelaCadastroEleitor(this);
         telaCadastroEleitor.setVisible(true);
+    }
+
+    public void volta(){
+        telaEleitores.setVisible(false);
+        ControladorPrincipal.getInstancia().inicia();
     }
 
     public Eleitor adiciona (int secao, int tituloEleitor, Zona zona) throws CodigoNaoNumericoException{
@@ -71,10 +69,10 @@ public class ControladorEleitores {
 
     public Eleitor exclui(Object tituloEleitor) {
         int titulo = Integer.parseInt(tituloEleitor.toString());
-        for (Eleitor eleitores : EleitorDAO.getInstancia().getList()){
-            if (eleitores.getCodigo() == titulo){
-                EleitorDAO.getInstancia().getList().remove(eleitores);
-                return eleitores;
+        for (Eleitor eleitor : EleitorDAO.getInstancia().getList()){
+            if (eleitor.getCodigo() == titulo){
+                EleitorDAO.getInstancia().remove(eleitor);
+                return eleitor;
             }
         }
         return null;
