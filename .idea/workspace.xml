@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5df276cf-653d-4970-a28d-e461d008352a" name="Default" comment="- Adicionado persistencia aos DAOs&#10;- Criação dos arquivos .dat que armazenam persistencia&#10;- Ajuste da tela de Eleitores para o padrão&#10;- Correção do método existe() nos controladores de partido e candidato&#10;- Elementos tornados Serializable(serializaveis)">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/candidatos.dat" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/eleitores.dat" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/partidos.dat" />
+    <list default="true" id="5df276cf-653d-4970-a28d-e461d008352a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorCandidatos.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorEleitores.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorEleitores.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Controladores/ControladorPartidos.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/CandidatoDAO.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/EleitorDAO.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/EleitorDAO.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/DAOs/PartidoDAO.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Candidato.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Candidato.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Eleitor.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/Eleitor.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/PartidoPolitico.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Elementos/PartidoPolitico.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroEleitor.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaCadastroEleitor.java" />
-      <change beforePath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaEleitores.java" afterPath="$PROJECT_DIR$/Urna/src/br/ufsc/ine5605/Urna/Telas/TelaEleitores.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -454,15 +440,21 @@
       <option name="project" value="LOCAL" />
       <updated>1528836615767</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="- Adicionado persistencia aos DAOs&#10;- Criação dos arquivos .dat que armazenam persistencia&#10;- Ajuste da tela de Eleitores para o padrão&#10;- Correção do método existe() nos controladores de partido e candidato&#10;- Elementos tornados Serializable(serializaveis)">
+      <created>1529091127949</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1529091127949</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19332000" />
+    <option name="totallyTimeSpent" value="19363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
