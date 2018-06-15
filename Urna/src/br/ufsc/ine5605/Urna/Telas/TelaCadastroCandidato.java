@@ -25,11 +25,14 @@ public class TelaCadastroCandidato extends JFrame {
     private JComboBox cbCargo;
     private JButton btSalva;
     private JButton btCancela;
+    private JButton teste;
 
 
     public TelaCadastroCandidato (ControladorCandidatos ctrl){
-        //Inicialização JFrame
+        //InicializaÃ§Ã£o JFrame
         super("Candidatos");
+        criaTela();
+        criaComboBox();
     }
 
     public void criaTela(){
@@ -52,13 +55,13 @@ public class TelaCadastroCandidato extends JFrame {
         c.gridx = 1;
         container.add(txNome,c);
 
-        //Label de código
+        //Label de cÃ³digo
         lCod = new JLabel("Codigo:");
         c.gridx = 0;
         c.gridy = 1;
         c.fill = GridBagConstraints.CENTER;
         container.add(lCod,c);
-        //TextField de código
+        //TextField de cÃ³digo
         txCodigo = new JTextField();
         txCodigo.setColumns(20);
         c.gridx = 1;
@@ -100,7 +103,7 @@ public class TelaCadastroCandidato extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
         Container container = getContentPane();
 
-        //Criação comboBox partidos
+        //CriaÃ§Ã£o comboBox partidos
         modeloPartidos = new DefaultComboBoxModel();
         for (PartidoPolitico pp : PartidoDAO.getInstancia().getList()){
             modeloPartidos.addElement(pp.getNome());
@@ -112,7 +115,7 @@ public class TelaCadastroCandidato extends JFrame {
         container.add(cbPartidos, c);
 
 
-        //Criação comboBox Cargo
+        //CriaÃ§Ã£o comboBox Cargo
         String[] cargos = {"Prefeito"};
         cbCargo = new JComboBox(cargos);
         c.fill = GridBagConstraints.HORIZONTAL;

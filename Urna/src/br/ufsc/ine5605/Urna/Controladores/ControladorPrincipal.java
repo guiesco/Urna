@@ -12,7 +12,6 @@ public class ControladorPrincipal {
 
     private ControladorPrincipal(){
         telaPrincipal = new TelaPrincipal();
-        ctrlEleitores = new ControladorEleitores();
         sistVotacao = new SistemaVotacao();
     }
 
@@ -37,7 +36,7 @@ public class ControladorPrincipal {
                 ControladorCandidatos.getInstancia().inicia();
                 break;
             case "3":
-                ctrlEleitores.inicia();
+                ControladorEleitores.getInstance().inicia();
                 break;
             case "4":
                 sistVotacao.inicia();
