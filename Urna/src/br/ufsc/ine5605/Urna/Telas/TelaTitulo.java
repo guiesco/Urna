@@ -1,6 +1,7 @@
 package br.ufsc.ine5605.Urna.Telas;
 
 import br.ufsc.ine5605.Urna.Controladores.SistemaVotacao;
+import br.ufsc.ine5605.Urna.Elementos.Candidato;
 import br.ufsc.ine5605.Urna.Elementos.Eleitor;
 
 import javax.swing.*;
@@ -23,9 +24,9 @@ public class TelaTitulo extends JFrame {
     public void criaTela(){
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
         setSize(400, 150);
         setLocationRelativeTo(null);
-        GridBagConstraints c = new GridBagConstraints();
         GerenciadorBotoes btManager = new GerenciadorBotoes();
 
         //Label de nome
@@ -49,7 +50,7 @@ public class TelaTitulo extends JFrame {
         container.add(btSalva, c);
 
         //config botao cancela
-        btFinaliza = new JButton("Finalizar votacao");
+        btFinaliza = new JButton("Finalizar");
         btFinaliza.setActionCommand("fim");
         btFinaliza.addActionListener(btManager);
         c.gridx = 2;
@@ -73,8 +74,10 @@ public class TelaTitulo extends JFrame {
                     txTitulo.setText("");
                     break;
                 case "fim":
-                    String vencedor = SistemaVotacao.getInstance().verificaVencedor();
-                    JOptionPane.showMessageDialog(null, vencedor);
+                    Candidato vencedor = SistemaVotacao.getInstance().verificaVencedor();
+                    String msg = "O vencedor foi o candidato " + vencedor.getNome()
+                            + " com o total de " + vencedor.getVotos() + " votos";
+                    JOptionPane.showMessageDialog(null, msg);
                     setVisible(false);
                     txTitulo.setText("");
                     SistemaVotacao.getInstance().volta();

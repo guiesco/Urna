@@ -55,7 +55,7 @@ public class SistemaVotacao {
 
     }
 
-    public String verificaVencedor(){
+    public Candidato verificaVencedor(){
         Collection<Candidato> candidatos = CandidatoDAO.getInstancia().getList();
         Candidato vencedor = new Candidato();
         try{
@@ -67,6 +67,6 @@ public class SistemaVotacao {
         }catch (Exception ex){
 
         }
-        return vencedor.getNome();
+        return vencedor;
     }
 }

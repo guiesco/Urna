@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class CandidatoDAO {
 
-    private final String filename = "C:\\Users\\48687223870\\Documents\\projetos\\ufsc\\dso\\Urna\\Urna\\src\\br\\ufsc\\ine5605\\Urna\\DAOs\\candidatos.dat";
+    private final String filename = "candidatos.dat";
     private HashMap<Integer, Candidato> cacheCandidatos = new HashMap<>();
 
     private static CandidatoDAO candidatoDAO;

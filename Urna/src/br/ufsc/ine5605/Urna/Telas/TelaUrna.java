@@ -2,7 +2,6 @@ package br.ufsc.ine5605.Urna.Telas;
 
 import br.ufsc.ine5605.Urna.Controladores.ControladorCandidatos;
 import br.ufsc.ine5605.Urna.Elementos.Candidato;
-import com.sun.deploy.panel.JreTableModel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,6 +14,7 @@ public class TelaUrna extends JFrame {
     private JPanel pBotoes;
     private JPanel pCandidatos;
     private JLabel configUrna;
+    private JLabel segConfigUrna;
     private JLabel lNumCandidato;
     private JTable jtCandidatos;
     private DefaultTableModel modeloCandidatos;
@@ -28,14 +28,15 @@ public class TelaUrna extends JFrame {
     private JButton bt8;
     private JButton bt9;
     private JButton bt0;
-    private JButton salva;
-    private JButton cancela;
+    private JButton btSalva;
+    private JButton btCancela;
 
 
 
     public TelaUrna(int secao, int codigoEleitor){
         super("Urna");
-        this.configUrna = new JLabel("Bem vindo eleitor "+codigoEleitor+"\nvoce está na secao "+ secao + " do segundo turno");
+        this.configUrna = new JLabel("Bem vindo eleitor nº"+codigoEleitor);
+        this.segConfigUrna = new JLabel("Voce está na secao "+ secao + " do segundo turno para prefeito");
 
         Container containerGeral = getContentPane();
         containerGeral.setLayout(new GridBagLayout());
@@ -43,39 +44,95 @@ public class TelaUrna extends JFrame {
         setSize(1000, 750);
         setLocationRelativeTo(null);
 
-
-
-        criaPainelBotoes();
-        criaPainelCandidatos();
+        cGeral.gridx = 0;
+        cGeral.gridy = 0;
+        add(configUrna, cGeral);
+        cGeral.gridx = 0;
+        cGeral.gridy = 1;
+        add(segConfigUrna, cGeral);
+        cGeral.gridx = 0;
+        cGeral.gridy = 2;
+        add(criaPainelBotoes(), cGeral);
+        cGeral.gridx = 1;
+        add(criaPainelCandidatos(), cGeral);
 
     }
 
-    public void criaPainelBotoes(){
-        GridBagConstraints c = new GridBagConstraints();
+    public JPanel criaPainelBotoes(){
+        pBotoes = new JPanel();
         GerenciadorBotoes btManager = new GerenciadorBotoes();
-        bt1 = new JButton("1");
-        bt2 = new JButton("2");
+        pBotoes.setLayout(new GridBagLayout());
+        GridBagConstraints cBotoes = new GridBagConstraints();
+
+        pBotoes.add(bt1 = new JButton("1"));
+        pBotoes.add(bt2 = new JButton("2"));
+        pBotoes.add(bt3 = new JButton("3"));
+        cBotoes.gridy = 1;
+        pBotoes.add(bt4 = new JButton("4"),cBotoes);
+        pBotoes.add(bt5 = new JButton("5"),cBotoes);
+        pBotoes.add(bt6 = new JButton("6"),cBotoes);
+        cBotoes.gridy = 2;
+        pBotoes.add(bt7 = new JButton("7"),cBotoes);
+        pBotoes.add(bt8 = new JButton("8"),cBotoes);
+        pBotoes.add(bt9 = new JButton("9"),cBotoes);
+        cBotoes.gridy = 3;
+        pBotoes.add(btCancela = new JButton("Limpa"),cBotoes);
+        pBotoes.add(bt0 = new JButton("0"),cBotoes);
+        pBotoes.add(btSalva = new JButton("Confirma"),cBotoes);
 
 
+        bt1.setActionCommand("1");
+        bt2.setActionCommand("2");
+        bt3.setActionCommand("3");
+        bt4.setActionCommand("4");
+        bt5.setActionCommand("5");
+        bt6.setActionCommand("6");
+        bt7.setActionCommand("7");
+        bt8.setActionCommand("8");
+        bt9.setActionCommand("9");
+        bt0.setActionCommand("0");
+        btCancela.setActionCommand("limpa");
+        btSalva.setActionCommand("confirma");
+
+        bt1.addActionListener(btManager);
+        bt2.addActionListener(btManager);
+        bt3.addActionListener(btManager);
+        bt4.addActionListener(btManager);
+        bt5.addActionListener(btManager);
+        bt6.addActionListener(btManager);
+        bt7.addActionListener(btManager);
+        bt8.addActionListener(btManager);
+        bt9.addActionListener(btManager);
+        bt0.addActionListener(btManager);
+        btSalva.addActionListener(btManager);
+        btCancela.addActionListener(btManager);
+
+
+
+        return pBotoes;
     }
 
-    public void criaPainelCandidatos(){
-        GridBagConstraints c = new GridBagConstraints();
-        criaTabelaCandidatos();
+    public JPanel criaPainelCandidatos(){
+        pCandidatos = new JPanel();
+        pCandidatos.setLayout(new GridBagLayout());
+        GridBagConstraints cCandidatos = new GridBagConstraints();
+        lNumCandidato = new JLabel("");
+
+        pCandidatos.add(lNumCandidato);
+        cCandidatos.gridy = 1;
+        pCandidatos.add(criaTabelaCandidatos(),cCandidatos);
+
+        return pCandidatos;
     }
 
-    public void criaTabelaCandidatos(){
-        Container container = getContentPane();
-        GridBagConstraints c = new GridBagConstraints();
-
+    public JScrollPane criaTabelaCandidatos(){
         //Criação da lista nomes
         modeloCandidatos = new DefaultTableModel();
         modeloCandidatos.addColumn("Nome");
         modeloCandidatos.addColumn("Codigo");
         modeloCandidatos.addColumn("Partido");
-        modeloCandidatos.addColumn("Cargo");
         for (Candidato candidato : ControladorCandidatos.getInstancia().getCandidatos()){
-            modeloCandidatos.addRow( new Object [] {candidato.getNome(), candidato.getCodigo(), candidato.getPartido().getNome(), candidato.getCargo().getNome()});
+            modeloCandidatos.addRow( new Object [] {candidato.getNome(), candidato.getCodigo(), candidato.getPartido().getNome()});
         }
 
         //Iniciando JTable
@@ -85,20 +142,9 @@ public class TelaUrna extends JFrame {
         //inserindo no JSPane
         JScrollPane listScroller = new JScrollPane(jtCandidatos);
         listScroller.setPreferredSize(new Dimension(175, 75));
-        c.gridx = 1;
-        c.gridy = 1;
-        container.add(listScroller, c);
 
-
+        return listScroller;
     }
-
-
-
-
-
-
-
-
 
     private class GerenciadorBotoes implements ActionListener {
 
@@ -106,8 +152,8 @@ public class TelaUrna extends JFrame {
         public void actionPerformed(ActionEvent e){
             switch (e.getActionCommand()){
                 case "1":
-                    lNumCandidato.setText(lNumCandidato.getText()+"1");
-                    getCandidato(lNumCandidato.getText());
+                    String replace = lNumCandidato.getText() + e.getActionCommand();
+                    lNumCandidato.setText(replace);
                     break;
                 case "2":
                     lNumCandidato.setText(lNumCandidato.getText()+"2");
@@ -137,9 +183,19 @@ public class TelaUrna extends JFrame {
                     lNumCandidato.setText(lNumCandidato.getText()+"0");
                     break;
                 case "confirma":
-                    getCandidato(lNumCandidato.getText()).recebeVoto();
+                    Candidato votado = getCandidato(lNumCandidato.getText());
+                    if (votado == null){
+                        JOptionPane.showMessageDialog(null, "Candidato nao existente.");
+                    }else {
+                        votado.recebeVoto();
+                        JOptionPane.showMessageDialog(null, "Obrigado pelo seu voto.");
+                        setVisible(false);
+                    }
+
+                    lNumCandidato.setText("");
                     break;
-                case "cancela":
+                case "limpa":
+                    lNumCandidato.setText("");
                     break;
             }
         }

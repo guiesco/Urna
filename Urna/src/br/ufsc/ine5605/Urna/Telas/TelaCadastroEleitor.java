@@ -143,8 +143,6 @@ public class TelaCadastroEleitor extends JFrame {
                         }
                         if (zonaEleitor.equals("Florianopolis")) {
                             novoEleitor = ControladorEleitores.getInstance().adiciona(secaoEleitor, tituloEleitor, Zona.Florianopolis);
-                        }else{
-                            novoEleitor = ControladorEleitores.getInstance().adiciona(secaoEleitor, tituloEleitor, Zona.Sao_Jose);
                         }
                         if (novoEleitor == null){
                             JOptionPane.showMessageDialog(null, "Candidato ja existente.");

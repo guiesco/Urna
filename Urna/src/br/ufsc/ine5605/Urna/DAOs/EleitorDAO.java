@@ -18,7 +18,7 @@ import java.util.HashMap;
  */
 public class EleitorDAO {
 
-    private final String filename = "C:\\Users\\48687223870\\Documents\\projetos\\ufsc\\dso\\Urna\\Urna\\src\\br\\ufsc\\ine5605\\Urna\\DAOs\\eleitores.dat";
+    private final String filename = "eleitores.dat";
     private HashMap<Integer, Eleitor> cacheEleitores = new HashMap<>();
     private static EleitorDAO eleitorDAO;
 
@@ -77,7 +77,7 @@ public class EleitorDAO {
     }
 
     public void remove(Eleitor eleitor){
-        cacheEleitores.remove(eleitor);
+        cacheEleitores.remove(eleitor.getCodigo(), eleitor);
         persist();
     }
 

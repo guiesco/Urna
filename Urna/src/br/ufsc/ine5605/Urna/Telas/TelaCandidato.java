@@ -18,22 +18,22 @@ public class TelaCandidato extends JFrame {
     private JButton excluir;
     private JButton voltar;
 
-    public TelaCandidato (){
+    public TelaCandidato() {
         //Inicia JFrame
         super("Candidato");
         criaTela();
         criaTabela();
     }
 
-    public void criaTela(){
-        
+    public void criaTela() {
+
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         setSize(400, 200);
         setLocationRelativeTo(null);
         GerenciadorBotoes btManager = new GerenciadorBotoes();
-        
+
         //Config Label titulo
         label = new JLabel("Esses são os atuais candidatos:");
         c.gridx = 1;
@@ -48,7 +48,7 @@ public class TelaCandidato extends JFrame {
         c.gridx = 0;
         c.gridy = 2;
         container.add(voltar, c);
-        
+
         //Config botão cadastro
         cadastro = new JButton("Cadastrar");
         cadastro.setActionCommand("cadastro");
@@ -65,7 +65,7 @@ public class TelaCandidato extends JFrame {
 
     }
 
-    public void criaTabela(){
+    public void criaTabela() {
 
         Container container = getContentPane();
         GridBagConstraints c = new GridBagConstraints();
@@ -76,8 +76,8 @@ public class TelaCandidato extends JFrame {
         modeloCandidatos.addColumn("Codigo");
         modeloCandidatos.addColumn("Partido");
         modeloCandidatos.addColumn("Cargo");
-        for (Candidato candidato : ControladorCandidatos.getInstancia().getCandidatos()){
-            modeloCandidatos.addRow( new Object [] {candidato.getNome(), candidato.getCodigo(), candidato.getPartido().getNome(), candidato.getCargo().getNome()});
+        for (Candidato candidato : ControladorCandidatos.getInstancia().getCandidatos()) {
+            modeloCandidatos.addRow(new Object[]{candidato.getNome(), candidato.getCodigo(), candidato.getPartido().getNome(), candidato.getCargo().getNome()});
         }
 
         //Iniciando JTable
@@ -93,32 +93,33 @@ public class TelaCandidato extends JFrame {
 
     }
 
-    public void exclui(){
+    public void exclui() {
         int index = candidatos.getSelectedRow();
         Object nome = modeloCandidatos.getValueAt(index, 0);
-        if (!(ControladorCandidatos.getInstancia().exclui(nome) == null)){
+        if (!(ControladorCandidatos.getInstancia().exclui(nome) == null)) {
             modeloCandidatos.removeRow(index);
-        }else {
+        } else {
             JOptionPane.showMessageDialog(null, "Problema ao deletar candidato.");
         }
     }
 
-    private class GerenciadorBotoes implements ActionListener{
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                switch (ae.getActionCommand()) {
-                    case "cadastro":
-                        ControladorCandidatos.getInstancia().novoCadastro();
-                        break;
-                    case "exclusao":
-                        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o candidato selecionado?", "Confirme", 2) == 0){
-                            exclui();
-                        }
-                        break;
-                    case "volta":
-                        ControladorCandidatos.getInstancia().volta();
-                }
+    private class GerenciadorBotoes implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            switch (ae.getActionCommand()) {
+                case "cadastro":
+                    ControladorCandidatos.getInstancia().novoCadastro();
+                    break;
+                case "exclusao":
+                    if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o candidato selecionado?", "Confirme", 2) == 0) {
+                        exclui();
+                    }
+                    break;
+                case "volta":
+                    ControladorCandidatos.getInstancia().volta();
             }
         }
     }
+}
+
 
