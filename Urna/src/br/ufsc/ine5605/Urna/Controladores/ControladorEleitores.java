@@ -32,7 +32,7 @@ public class ControladorEleitores {
     
     public void novoCadastro() {
         telaEleitores.setVisible(false);
-        telaCadastroEleitor = new TelaCadastroEleitor(this);
+        telaCadastroEleitor = new TelaCadastroEleitor();
         telaCadastroEleitor.setVisible(true);
     }
 

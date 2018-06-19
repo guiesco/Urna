@@ -26,21 +26,19 @@ public class TelaCadastroEleitor extends JFrame {
     private JLabel lTitulo;
     private JTextField titulo;
     private JLabel lZona;
-    private JTextField zona;
     private JLabel lEleitores;
     private DefaultComboBoxModel<String> zonasCadastradas;
     private DefaultComboBoxModel<String> secoesCadastradas;
     private JLabel lSecao;
-    private JTextField secao;
     private JComboBox secoes;
     private JComboBox zonas;
     private JButton salvar;
     private JButton cancelar;
 
 
-    public TelaCadastroEleitor (ControladorEleitores ctrl){
+    public TelaCadastroEleitor (){
         //Inicialização JFrame
-        super("Eleitores");;
+        super("Eleitores");
         Container container = getContentPane();
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -163,9 +161,7 @@ public class TelaCadastroEleitor extends JFrame {
                     break;
                 case "cancela":
                     setVisible(false);
-                    secao.setText("");
                     titulo.setText("");
-                    zona.setText("");
                     ControladorEleitores.getInstance().inicia();
                     break;
             }
