@@ -12,6 +12,10 @@ public class Candidato implements Serializable {
     private PartidoPolitico partido;
     private int votos;
 
+    public Candidato(){
+        votos = 0;
+    }
+
     public Candidato(String nome, int numero, CARGO cargo, PartidoPolitico partido){
         this.nome = nome;
         this.numCandidato = numero;

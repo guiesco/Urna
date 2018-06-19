@@ -17,15 +17,15 @@ public class ControladorPartidos {
     private TelaCadastroPartido telaCadastroPartido;
 
 
-    private ControladorPartidos(){
-
-    }
-
     public static ControladorPartidos getInstance(){
         if (controladorPartidos == null){
             controladorPartidos = new ControladorPartidos();
         }
         return controladorPartidos;
+
+    }
+
+    private ControladorPartidos(){
     }
 
     public void inicia() {
