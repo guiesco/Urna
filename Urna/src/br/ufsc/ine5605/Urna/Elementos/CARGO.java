@@ -2,8 +2,7 @@ package br.ufsc.ine5605.Urna.Elementos;
 
 public enum CARGO {
 
-    GOVERNADOR("GOV"),
-    PREFEITO("Prefeito");
+    GOVERNADOR("Governador");
 
     public String nome;
     CARGO(String nome){

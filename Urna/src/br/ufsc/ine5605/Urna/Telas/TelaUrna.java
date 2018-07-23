@@ -36,7 +36,7 @@ public class TelaUrna extends JFrame {
     public TelaUrna(int secao, int codigoEleitor){
         super("Urna");
         this.configUrna = new JLabel("Bem vindo eleitor nº"+codigoEleitor);
-        this.segConfigUrna = new JLabel("Voce está na secao "+ secao + " do segundo turno para prefeito");
+        this.segConfigUrna = new JLabel("Voce está na secao "+ secao + " do segundo turno para governador");
 
         Container containerGeral = getContentPane();
         containerGeral.setLayout(new GridBagLayout());

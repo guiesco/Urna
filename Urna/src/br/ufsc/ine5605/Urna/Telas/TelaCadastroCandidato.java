@@ -116,7 +116,7 @@ public class TelaCadastroCandidato extends JFrame {
 
 
         //CriaÃ§Ã£o comboBox Cargo
-        String[] cargos = {"Prefeito"};
+        String[] cargos = {"Governador"};
         cbCargo = new JComboBox(cargos);
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
@@ -132,7 +132,8 @@ public class TelaCadastroCandidato extends JFrame {
             switch (e.getActionCommand()){
                 case "salva":
                     try {
-                        Candidato novoCandidato = ControladorCandidatos.getInstancia().adiciona(txNome.getText(), txCodigo.getText(), modeloPartidos.getElementAt(cbPartidos.getSelectedIndex()), CARGO.PREFEITO);
+                        Candidato novoCandidato = ControladorCandidatos.getInstancia().adiciona(txNome.getText(),
+                                txCodigo.getText(), modeloPartidos.getElementAt(cbPartidos.getSelectedIndex()), CARGO.GOVERNADOR);
                         if (novoCandidato == null){
                             JOptionPane.showMessageDialog(null, "Candidato ja existente.");
                         }else {
